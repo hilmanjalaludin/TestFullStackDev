@@ -29,7 +29,7 @@ class CommentsFactory extends Factory
             'email' => User::all()->random()->email,
             'website' => $this->faker->text,
             'comment' => $this->faker->text,
-            'post_id' => 1,
+            'post_id' => Posts::all()->random()->id,
            ];
     }
 }

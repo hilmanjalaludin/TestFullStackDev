@@ -48,7 +48,7 @@
                                     <td>{{ $post->name }}</td>
                                     <td>{{ $post->email }}</td>
                                     <td>{{ $post->comment }}</td>
-                                   
+                                    
                                 </tr>
                                 @empty
                                 <tr>

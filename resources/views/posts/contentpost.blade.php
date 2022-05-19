@@ -36,19 +36,23 @@
                         <table class="table table-bordered mt-1">
                             <thead>
                                 <tr>
+                                    <th scope="col">Title</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Comment</th>
+                                    <th scope="col">Slug</th>
+                                    <th scope="col">Content</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($posts as $post)
                                 {{-- {{dd($post)}} --}}
                                 <tr>
+                                    <td>{{ $post->title }}</td>
                                     <td>{{ $post->name }}</td>
                                     <td>{{ $post->email }}</td>
-                                    <td>{{ $post->comment }}</td>
-                                   
+                                    <td>{{ $post->slug }}</td>
+                                    <td>{{ $post->content }}</td>
+                                    
                                 </tr>
                                 @empty
                                 <tr>

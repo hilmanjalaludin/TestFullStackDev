@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
-    public function index()
+    public function UserList()
     {
         // $posts = Posts::latest()->get();
         $posts = User::
@@ -17,6 +17,27 @@ class PostsController extends Controller
                 ->join('comments', 'comments.post_id', '=', 'posts.id')
                ->get(['users.*', 'posts.content','comments.comment']);
         return view('posts.index', compact('posts'));
+    }
+
+    public function ContentPost()
+    {
+        // $posts = Posts::latest()->get();
+        $posts = User::
+                join('posts', 'users.id', '=', 'posts.user_id')
+                // ->join('comments', 'comments.post_id', '=', 'posts.id')
+               ->get(['users.*', 'posts.*']);
+        return view('posts.contentpost', compact('posts'));
+    }
+   
+    public function CommentGuest()
+    {
+        // $posts = Posts::latest()->get();
+        $posts = User::
+                    join('posts', 'users.id', '=', 'posts.user_id')
+                    ->join('comments', 'comments.post_id', '=', 'posts.id')
+                    ->whereNull('comments.name')
+                    ->get(['users.*', 'posts.content','comments.comment']);
+        return view('posts.comguest', compact('posts'));
     }
 
     public function create()
