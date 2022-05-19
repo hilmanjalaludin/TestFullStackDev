@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 use App\Models\Posts;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str; 
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Posts::latest()->get();
+        // $posts = Posts::latest()->get();
+        $posts = User::
+                join('posts', 'users.id', '=', 'posts.user_id')
+                ->join('comments', 'comments.post_id', '=', 'posts.id')
+               ->get(['users.*', 'posts.content','comments.comment']);
         return view('posts.index', compact('posts'));
     }
 

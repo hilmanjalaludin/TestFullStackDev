@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\Models\Comments;
 
-class DatabaseSeeder extends Seeder
+class CommentsSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(5)->create();
+        Comments::factory(10)->create();
         
     }
 }

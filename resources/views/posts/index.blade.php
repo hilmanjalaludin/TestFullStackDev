@@ -37,16 +37,19 @@
                         <table class="table table-bordered mt-1">
                             <thead>
                                 <tr>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Create At</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Comment</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($posts as $post)
+                                {{-- {{dd($post)}} --}}
                                 <tr>
-                                    <td>{{ $post->title }}</td>
-                                    <td>{{ $post->created_at->format('d-m-Y') }}</td>
+                                    <td>{{ $post->name }}</td>
+                                    <td>{{ $post->email }}</td>
+                                    <td>{{ $post->comment }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                             action="{{ route('post.destroy', $post->id) }}" method="POST">
