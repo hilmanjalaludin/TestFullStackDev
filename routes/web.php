@@ -19,4 +19,4 @@ use App\Http\Controllers\PostsController;
 Route::get('/', [PostsController::class, 'UserList']);
 Route::get('/ContPost', [PostsController::class, 'ContentPost']);
 Route::get('/comguest', [PostsController::class, 'CommentGuest']);
-Route::resource('post', PostsController::class);
+Route::get('postobs', [PostsController::class, 'PostsObserver']);
