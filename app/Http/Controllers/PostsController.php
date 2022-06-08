@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
+    //User list
     public function UserList()
     {
         $posts = User::
